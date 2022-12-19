@@ -21,6 +21,8 @@ RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 # Config wstunnel
 RUN npm install -g wstunnel
 
+RUN chmod +x sshd-supervisor.sh
+RUN chmod +x wstunnel-supervisor.sh
 ADD sshd-supervisor.sh /usr/local/bin/
 ADD wstunnel-supervisor.sh /usr/local/bin/
 ADD supervisor.d/* /etc/supervisor/conf.d/
